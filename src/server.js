@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const chalk = require('chalk');
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 const port = process.env.PORT = 3000;
 
@@ -46,16 +48,36 @@ app.get('/help', (req, res) => {
 
 // Weather
 app.get('/weather', (req, res) => {
-    if (!req.query.address) {
+    const address = req.query.address ? req.query.address : undefined;
+    if (!address) {
         return res.send({
             error: 'Please enter an address'
         });
     }
+
+    geocode(address, (error, { latitude, longitude, location }) => {
+        if (error) {
+            return res.send({ error });
+        }
     
-    res.send({
-        forecast: 'Sunny as fuck',
-        address: req.query.address
+        forecast(latitude, longitude, (error, forecastData) => {
+            if (error) {
+                return res.send({ error });
+            }
+            
+            res.send({
+                forecast: forecastData,
+                location,
+                address
+            })
+        });
     });
+
+    // res.send({
+    //     forecast: 'Sunny as fuck',
+    //     location: 'San Francisco',
+    //     address: req.query.address
+    // });
 });
 
 // Products
