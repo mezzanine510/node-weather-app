@@ -1,2 +1,2 @@
-/node_modules
-/src/utils/my-config.js
+node_modules/
+src/utils/my-config.js
