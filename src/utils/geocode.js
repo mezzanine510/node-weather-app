@@ -1,11 +1,11 @@
 const request = require('request');
 
 // provide your mapbox token/api key to use the app
-const { mapboxToken } = require('./config'); 
+const { mapboxKey } = require('./my-config'); 
 
 const geocode = (address, callback) => {
     // encode to handle special characters
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${ encodeURIComponent(address) }.json?access_token=${ mapboxToken }&limit=1`;
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${ encodeURIComponent(address) }.json?access_token=${ mapboxKey }&limit=1`;
 
     request({ url, json: true }, (error, { body }) => {
         if (error) {

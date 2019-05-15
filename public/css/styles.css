@@ -1,6 +1,11 @@
+@font-face {
+    font-family: 'Office Code Pro D Regular';
+    src: url('../fonts/OfficeCodeProD-Regular.eot');
+}
+
 body {
     color: #333333;
-    font-family: 'Office Code Pro D', monospace;
+    font-family: 'Office Code Pro D Regular', monospace;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
@@ -8,6 +13,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .main-content {
@@ -36,6 +46,29 @@ header a {
     color: #888888;
     margin-right: 16px;
     text-decoration: none;
+}
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    transition: all 0.1s ease;
+}
+
+input:focus {
+    outline-color: rgb(0, 238, 255);
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: white;
+    padding: 8px;
+    transition: all 0.15s ease;
+}
+
+button:hover {
+    color: rgb(0, 238, 255);
 }
 
 .portrait {

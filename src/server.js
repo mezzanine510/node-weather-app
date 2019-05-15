@@ -14,7 +14,7 @@ const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
-// Setup handlebars engine and views location
+// Setup handlebars/hbs engine and views location
 app.set('view engine','hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
@@ -22,6 +22,11 @@ hbs.registerPartials(partialsPath);
 // Setup static directory to serve
 app.use( express.static(publicDirectoryPath) );
 
+
+
+//*** PAGES ***//
+
+// Index/Home
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
@@ -55,7 +60,7 @@ app.get('/weather', (req, res) => {
         });
     }
 
-    geocode(address, (error, { latitude, longitude, location }) => {
+    geocode(address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({ error });
         }
@@ -110,6 +115,9 @@ app.get('*', (req, res) => {
     });
 });
 
+
+
+//*** START SERVER ***//
 app.listen(port, () => {
     console.log( chalk.cyan('Server is up on port'), chalk.yellow(port) );
 });
