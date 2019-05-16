@@ -22,16 +22,22 @@ const messageTwo = document.querySelector('#message-2');
 weatherForm.addEventListener('submit', (e)=> {
     e.preventDefault();
 
+    messageOne.style.color = '#184875';
+    messageOne.style.fontWeight = 'normal';
     messageOne.textContent = 'Getting the weather...';
-    messageTwo.textContet = '';
+    messageTwo.textContent = '';
     
-    fetch(`http://localhost:3000/weather?address=${ search.value }`)
+    fetch(`http://localhost:8081/weather?address=${ search.value }`)
     .then((response) => {
+        console.log(response);
         response.json().then((data) => {
             if (data.error) {
+                messageOne.style.color = 'red';
                 messageOne.textContent = data.error;
             }
             else {
+                messageOne.style.color = '#03be03';
+                messageOne.style.fontWeight = 'bold';
                 messageOne.textContent = data.location;
                 messageTwo.textContent = data.forecast;
             }

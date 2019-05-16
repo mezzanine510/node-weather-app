@@ -4,7 +4,8 @@
 }
 
 body {
-    color: #333333;
+    color: #184875;
+    background-color: #ffffe0;
     font-family: 'Office Code Pro D Regular', monospace;
     max-width: 650px;
     margin: 0 auto;
@@ -27,17 +28,18 @@ input, select, textarea, button {
 header {
     margin-top: 16px;
     margin-bottom: 48px;
+    text-align: center;
 }
 
 footer {
     color: #888888;
     border-top: 1px solid #eeeeee;
-    margin-top: 16px;
-    padding: 16px 0;
+    text-align: center;
 }
 
 
 h1 {
+    color: #184875;
     font-size: 64px;
     margin-bottom: 16px;
 }
@@ -48,29 +50,74 @@ header a {
     text-decoration: none;
 }
 
+form {
+    text-align: center;
+}
+
 input {
     border: 1px solid #cccccc;
     padding: 8px;
-    transition: all 0.1s ease;
+    transition: all 0.4s ease;
+    outline-color: rgba(0, 0, 0, 0);
+    margin: auto;
 }
 
 input:focus {
-    outline-color: rgb(0, 238, 255);
+    outline-color: rgb(3, 190, 3, 1);
+    transition: all 0.25s ease;
 }
 
 button {
     cursor: pointer;
     border: 1px solid #888888;
-    background: #888888;
+    background: #184875;
     color: white;
     padding: 8px;
     transition: all 0.15s ease;
 }
 
 button:hover {
-    color: rgb(0, 238, 255);
+    color: rgb(3, 190, 3);
 }
 
 .portrait {
-    width: 250px;
+    max-width: 500px;
+}
+
+.github-icon {
+    width: 28px;
+}
+
+/* Mobile */
+@media only screen and ( max-device-width: 1024px ) {
+    body {
+        font-size: 32px;
+        max-width: 90%;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 90px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    input, button {
+        padding: 20px;
+    }
+
+    input, select, textarea, button {
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    #message-1 {
+        float: left;
+    }
+
+    #message-2 {
+        float: left;
+    }
 }

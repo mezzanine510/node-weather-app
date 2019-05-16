@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
-const port = process.env.PORT = 3000;
+const port = process.env.PORT = 8081;
 
 const app = express();
 
@@ -37,7 +37,7 @@ app.get('', (req, res) => {
 // About
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
+        title: 'About',
         name: 'Nahuel Ruda'
     });
 });
@@ -47,7 +47,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
         details: 'This is the help page.',
-        name: 'Poopy Diaper'
+        name: 'Nahuel Ruda'
     });
 });
 
