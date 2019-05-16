@@ -7,6 +7,7 @@
 body {
     color: #184875;
     background-color: #ffffe0;
+    font-size: 18px;
     font-family: 'Office Code Pro D', monospace;
     max-width: 650px;
     margin: 0 auto;
@@ -22,33 +23,34 @@ input, select, textarea, button {
     font-size: inherit;
 }
 
-.main-content {
-    flex-grow: 1;
-}
-
 header {
     margin-top: 16px;
     margin-bottom: 48px;
     text-align: center;
 }
 
-footer {
-    color: #888888;
-    border-top: 1px solid #eeeeee;
-    text-align: center;
-}
-
-
-h1 {
-    color: #184875;
-    font-size: 64px;
-    margin-bottom: 16px;
+header h1 {
+    margin-bottom: 28px;
 }
 
 header a {
     color: #888888;
     margin-right: 16px;
     text-decoration: none;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #e6e6e6;
+    text-align: center;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+a:hover {
+    color: #03be03;
 }
 
 form {
@@ -82,28 +84,47 @@ button:hover {
     transition: all 0.25s ease;
 }
 
-.portrait {
-    max-width: 500px;
+.main-content {
+    flex-grow: 1;
 }
 
 .github-icon {
     width: 28px;
+    margin-bottom: 8px;
+}
+
+#search-status {
+    opacity: 0;
+    color: #03be03;
+    text-align: center;
+    transition: color 0.25s ease;
+    transition: opacity 1s ease;
+}
+
+#temperature {
+    color: #184875;
+    font-size: 96px;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.75s ease;
+}
+
+#temperature-location {
+    color: #03be03;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.75s ease;
+}
+
+#temperature-summary {
+    opacity: 0;
+    transition: all 0.75s ease;
 }
 
 /* Mobile */
 @media only screen and ( max-device-width: 1024px ) {
-    body {
-        font-size: 32px;
-        max-width: 90%;
-    }
-
     header {
-        text-align: center;
         margin-bottom: 90px;
-    }
-
-    footer {
-        text-align: center;
     }
 
     input, button {
@@ -115,15 +136,16 @@ button:hover {
         font-size: inherit;
     }
 
-    #message-1 {
-        float: left;
-    }
-
-    #message-2 {
-        float: left;
+    #message-3 {
+        float: left; /* firefox */
     }
 
     .github-icon {
         width: 56px;
+        padding-bottom: 16px;
+    }
+
+    .github-link {
+        margin-bottom: 16px;
     }
 }

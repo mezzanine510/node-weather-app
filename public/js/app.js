@@ -1,45 +1,45 @@
 console.log('Client side javascript is loaded!');
 
-// fetch('http://localhost:3000/weather?address=san%20francisco').then((response) => {
-//     response.json().then((data) => {
-//         if (data.error) {
-//             console.log(data.error);
-//         }
-//         else {
-//             console.log(data.location);
-//             console.log(data.forecast);
-//         }
-//     });
-// });
-
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
-const messageOne = document.querySelector('#message-1');
-const messageTwo = document.querySelector('#message-2');
 
-// messageOne.textContent = 'From Javascript';
 
-weatherForm.addEventListener('submit', (e)=> {
-    e.preventDefault();
+const searchStatus = document.getElementById('search-status');
+const temperature = document.getElementById('temperature');
+const tempLocation = document.getElementById('temperature-location');
+const tempSummary = document.getElementById('temperature-summary');
 
-    messageOne.style.color = '#184875';
-    messageOne.style.fontWeight = 'normal';
-    messageOne.textContent = 'Getting the weather...';
-    messageTwo.textContent = '';
+weatherForm.addEventListener('submit', (error)=> {
+    error.preventDefault();
+
+    searchStatus.style.opacity = '1';
+    searchStatus.style.color = '#03be03';
+    temperature.style.opacity = '0';
+    tempLocation.style.opacity = '0';
+    tempSummary.style.opacity = '0';
+
+    searchStatus.textContent = 'Getting the weather...';
     
     fetch(`/weather?address=${ search.value }`)
     .then((response) => {
-        console.log(response);
         response.json().then((data) => {
+            console.log('data: ', data);
             if (data.error) {
-                messageOne.style.color = 'red';
-                messageOne.textContent = data.error;
+                searchStatus.textContent = data.error;
+                searchStatus.style.color = 'red';
             }
             else {
-                messageOne.style.color = '#03be03';
-                messageOne.style.fontWeight = 'bold';
-                messageOne.textContent = data.location;
-                messageTwo.textContent = data.forecast;
+                // searchStatus.textContent = 'Location found!';
+
+                temperature.textContent = `${ data.temperature }°`;
+                tempLocation.textContent = data.location;
+                tempSummary.textContent = data.summary;
+                
+                searchStatus.style.opacity = '0';
+                temperature.style.opacity = '1';
+                tempLocation.style.opacity = '1';
+                tempLocation.style.color = '#03be03';
+                tempSummary.style.opacity = '1';
             }
         });
     });

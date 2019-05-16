@@ -60,18 +60,21 @@ app.get('/weather', (req, res) => {
         });
     }
 
+    // src/utils/geocode.js
     geocode(address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({ error });
         }
     
-        forecast(latitude, longitude, (error, forecastData) => {
+        // src/utils/forecast.js
+        forecast(latitude, longitude, (error, { temperature, summary }) => {
             if (error) {
                 return res.send({ error });
             }
             
             res.send({
-                forecast: forecastData,
+                temperature,
+                summary,
                 location,
                 address
             })
@@ -83,7 +86,6 @@ app.get('/weather', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Nahuel Ruda',
         errorMessage: 'Help article was not found.'
     });
 });
@@ -92,7 +94,6 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Nahuel Ruda',
         errorMessage: 'Page was not found.'
     });
 });
