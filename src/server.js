@@ -77,24 +77,6 @@ app.get('/weather', (req, res) => {
             })
         });
     });
-
-    // res.send({
-    //     forecast: 'Sunny as fuck',
-    //     location: 'San Francisco',
-    //     address: req.query.address
-    // });
-});
-
-// Products
-app.get('/products', (req, res) => {
-    if (!req.query.search) {
-        return res.send({
-            error: 'You must provide a search term'
-        });
-    }
-    
-    console.log(req.query.search);
-    res.send({ products: [] });
 });
 
 // 404 related to /help

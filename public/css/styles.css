@@ -1,12 +1,13 @@
 @font-face {
-    font-family: 'Office Code Pro D Regular';
-    src: url('../fonts/OfficeCodeProD-Regular.eot');
+    font-family: 'Office Code Pro D';
+    /* src: url('../fonts/OfficeCodeProD-Regular.eot'); */
+    src: local('Office Code Pro D'), url('../../public/fonts/OfficeCodeProD-Regular.eot');
 }
 
 body {
     color: #184875;
     background-color: #ffffe0;
-    font-family: 'Office Code Pro D Regular', monospace;
+    font-family: 'Office Code Pro D', monospace;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
@@ -57,9 +58,10 @@ form {
 input {
     border: 1px solid #cccccc;
     padding: 8px;
-    transition: all 0.4s ease;
+    /* transition: all 0.4s ease; */
     outline-color: rgba(0, 0, 0, 0);
     margin: auto;
+    color:  #184875;
 }
 
 input:focus {
@@ -73,11 +75,11 @@ button {
     background: #184875;
     color: white;
     padding: 8px;
-    transition: all 0.15s ease;
 }
 
 button:hover {
     color: rgb(3, 190, 3);
+    transition: all 0.25s ease;
 }
 
 .portrait {
@@ -119,5 +121,9 @@ button:hover {
 
     #message-2 {
         float: left;
+    }
+
+    .github-icon {
+        width: 56px;
     }
 }
