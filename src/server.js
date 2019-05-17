@@ -77,7 +77,7 @@ app.get('/weather', (req, res) => {
                 summary,
                 location,
                 address
-            })
+            });
         });
     });
 });

@@ -1,7 +1,7 @@
 const request = require('request');
 
 // provide your mapbox token/api key to use the app
-const { mapboxKey } = require('./my-config'); 
+const { mapboxKey } = require('./config'); 
 
 const geocode = (address, callback) => {
     // encode to handle special characters

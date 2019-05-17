@@ -1,5 +1,3 @@
-console.log('Client side javascript is loaded!');
-
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 
@@ -12,6 +10,7 @@ const tempSummary = document.getElementById('temperature-summary');
 weatherForm.addEventListener('submit', (error)=> {
     error.preventDefault();
 
+    search.blur();
     searchStatus.style.opacity = '1';
     searchStatus.style.color = '#03be03';
     temperature.style.opacity = '0';
