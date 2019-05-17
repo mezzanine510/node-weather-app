@@ -11,7 +11,7 @@ https://www.mapbox.com
 Once you've obtained your authentication keys, enter the values into the appropriate configuration fields in `src/utils/config.js`.
 
 ### Use
-To run locally using nodemon, use:
+To run locallywith nodemon, use:
 
 ```
 nodemon src/server.js
