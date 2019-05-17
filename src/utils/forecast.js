@@ -1,7 +1,7 @@
 const request = require('request');
 
 // provide your Dark Sky token/api key to use the app
-const { darkskyKey } = require('./config');
+const { darkskyKey } = require('./my-config');
 
 const forecast = (latitude, longitude, callback) => {
     const url = `https://api.darksky.net/forecast/${ darkskyKey }/${ latitude },${ longitude }`;
@@ -15,13 +15,13 @@ const forecast = (latitude, longitude, callback) => {
         }
         else {
             const temperature = body.currently.temperature;
-            const precipProbability = body.currently.precipProbability;
+            const windSpeed = body.currently.windSpeed;
             const todaySummary = body.daily.data[0].summary;
 
             callback(undefined, 
                 {
                     temperature,
-                    summary: `${ todaySummary } It is currently ${ temperature } degrees out. There is ${ precipProbability }% chance of rain.`
+                    summary: `${ todaySummary } It is currently ${ temperature } degrees out. The current wind speed is ${ windSpeed }mph.`
                 }
             );
         }

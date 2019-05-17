@@ -1,6 +1,5 @@
 @font-face {
     font-family: 'Office Code Pro D';
-    /* src: url('../fonts/OfficeCodeProD-Regular.eot'); */
     src: local('Office Code Pro D'), url('../../public/fonts/OfficeCodeProD-Regular.eot');
 }
 
@@ -159,8 +158,8 @@ button:hover {
     }
 
     #temperature {
-        font-size: 128px;
-        margin-top: 24px;
+        font-size: 156px;
+        margin-top: 56px;
     }
 
     #temperature-summary {
